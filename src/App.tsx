@@ -4,6 +4,7 @@ import { Switch, Route, BrowserRouter as Router } from "react-router-dom"
 
 import Header from 'components/Header'
 import Users from 'pages/Users'
+import Posts from 'pages/Posts'
 
 const App: FC = () => {
   return (
@@ -22,10 +23,6 @@ const App: FC = () => {
       </Container>
     </Router>
   )
-}
-
-function Posts() {
-  return <h2>Posts</h2>
 }
 
 export default App
