@@ -9,7 +9,7 @@ import FaceIcon from '@material-ui/icons/Face'
 const Header: FC = () => {
   const history = useHistory()
 
-  const handleCallToRouter = (event: ChangeEvent<{}>, route: string) => {
+  const handleCallToRouter = (_: ChangeEvent<{}>, route: string) => {
     history.push(route)
   }
 

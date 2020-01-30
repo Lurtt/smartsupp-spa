@@ -3,6 +3,7 @@ import Container from '@material-ui/core/Container'
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom"
 
 import Header from 'components/Header'
+import Users from 'pages/Users'
 
 const App: FC = () => {
   return (
@@ -21,10 +22,6 @@ const App: FC = () => {
       </Container>
     </Router>
   )
-}
-
-function Users() {
-  return <h2>Users</h2>
 }
 
 function Posts() {
