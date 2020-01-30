@@ -6,10 +6,10 @@ import Header from 'components/Header'
 jest.mock('react-router-dom', () => ({
   useHistory: () => ({
     location: {
-      pathname: '/'
+      pathname: '/',
     },
   }),
-}));
+}))
 
 describe('<Header />', () => {
   it('should render', () => {

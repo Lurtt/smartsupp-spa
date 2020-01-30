@@ -1,0 +1,46 @@
+{
+  "extends": [
+    "react-app"
+  ],
+  "env": {
+    "jest": true
+  },
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": 2,
+    "require-await": 2,
+    "no-console": 2,
+    "no-debugger": 2,
+    "no-await-in-loop": 2,
+    "prefer-const": [2, {"destructuring": "all"}],
+    "arrow-body-style": [
+      2,
+      "as-needed"
+    ],
+    "no-shadow": [
+      2,
+      {
+        "hoist": "all",
+        "allow": [
+          "resolve",
+          "reject",
+          "done",
+          "next",
+          "err",
+          "error"
+        ]
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "semi": false,
+        "printWidth": 120
+      }
+    ]
+  }
+}
