@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC } from 'react'
+import Container from '@material-ui/core/Container'
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom"
 
-const App: React.FC = () => {
+import Header from 'components/Header'
+
+const App: FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Container maxWidth="md" data-testid="app">
+        <Header />
+
+        <Switch>
+          <Route path="/posts">
+            <Posts />
+          </Route>
+          <Route path="/">
+            <Users />
+          </Route>
+        </Switch>
+      </Container>
+    </Router>
+  )
 }
 
-export default App;
+function Users() {
+  return <h2>Users</h2>
+}
+
+function Posts() {
+  return <h2>Posts</h2>
+}
+
+export default App
