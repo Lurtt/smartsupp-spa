@@ -3,10 +3,13 @@ import Container from '@material-ui/core/Container'
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import { SWRConfig } from 'swr'
 
-import { typicodeAPI } from 'utils/api'
+import { typicodeAPI, ROUTE } from 'utils/api'
 import Header from 'components/Header'
+import UserDetail from 'components/UserDetail'
 import Users from 'pages/Users'
 import Posts from 'pages/Posts'
+
+const { HOME, POSTS, USER } = ROUTE
 
 const App: FC = () => (
   <SWRConfig value={{ fetcher: typicodeAPI }}>
@@ -15,10 +18,13 @@ const App: FC = () => (
         <Header />
         <Suspense fallback={<h1>LOADING...</h1>}>
           <Switch>
-            <Route path="/posts">
+            <Route path={POSTS}>
               <Posts />
             </Route>
-            <Route path="/">
+            <Route path={USER}>
+              <UserDetail />
+            </Route>
+            <Route path={HOME}>
               <Users />
             </Route>
           </Switch>
