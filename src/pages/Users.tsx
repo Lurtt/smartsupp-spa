@@ -1,5 +1,7 @@
 import React, { FC } from 'react'
 
-const Users: FC = () => <h2 data-testid="page-users">Users</h2>
+import UserList from 'components/UserList'
+
+const Users: FC = () => <UserList />
 
 export default Users

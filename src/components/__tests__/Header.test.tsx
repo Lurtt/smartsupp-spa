@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 
 import Header from 'components/Header'
@@ -11,8 +11,6 @@ describe('<Header />', () => {
         <Header />
       </MemoryRouter>
     )
-
-    fireEvent.click(getByTestId('route-users'))
 
     expect(getByTestId('app-header')).toBeInTheDocument()
   })
