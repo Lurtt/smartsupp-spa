@@ -6,10 +6,9 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import Avatar from '@material-ui/core/Avatar'
 import Tooltip from '@material-ui/core/Tooltip'
 import { useHistory } from 'react-router-dom'
-
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
 
-export interface UserProps {
+interface Props {
   id: number
   name: string
   username: string
@@ -26,7 +25,7 @@ const useStyles = (color: string) =>
     })
   )
 
-const UserListItem: FC<UserProps> = ({ id, name, username, email }) => {
+const UserListItem: FC<Props> = ({ id, name, username, email }) => {
   const classes = useStyles(getColor({ text: username }))()
   const history = useHistory()
 

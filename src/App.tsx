@@ -3,13 +3,12 @@ import Container from '@material-ui/core/Container'
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import { SWRConfig } from 'swr'
 
-import { typicodeAPI, ROUTE } from 'utils/api'
+import { typicodeAPI } from 'utils/api'
+import { HOME, POSTS, USER } from 'utils/routes'
 import Header from 'components/Header'
 import UserDetail from 'components/UserDetail'
 import Users from 'pages/Users'
 import Posts from 'pages/Posts'
-
-const { HOME, POSTS, USER } = ROUTE
 
 const App: FC = () => (
   <SWRConfig value={{ fetcher: typicodeAPI }}>

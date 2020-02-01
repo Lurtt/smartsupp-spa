@@ -2,7 +2,8 @@ import React, { FC } from 'react'
 import useSWR from 'swr'
 import List from '@material-ui/core/List'
 
-import User, { UserProps } from 'components/UserListItem'
+import User from 'components/UserListItem'
+import { User as UserProps } from 'types/user'
 
 const Users: FC = () => {
   const { data: response } = useSWR('/users', {

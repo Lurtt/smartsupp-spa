@@ -6,9 +6,7 @@ import Tab from '@material-ui/core/Tab'
 import MessageIcon from '@material-ui/icons/Message'
 import FaceIcon from '@material-ui/icons/Face'
 
-import { ROUTE } from 'utils/api'
-
-const { HOME, POSTS } = ROUTE
+import { HOME, POSTS } from 'utils/routes'
 
 const Header: FC = () => {
   const history = useHistory()
