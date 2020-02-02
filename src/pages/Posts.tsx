@@ -1,5 +1,7 @@
 import React, { FC } from 'react'
 
-const Posts: FC = () => <h2 data-testid="page-posts">Posts</h2>
+import PostList from 'components/PostList'
+
+const Posts: FC = () => <PostList />
 
 export default Posts

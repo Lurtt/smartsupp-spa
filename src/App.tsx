@@ -4,7 +4,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import { SWRConfig } from 'swr'
 
 import { typicodeAPI } from 'utils/api'
-import { HOME, POSTS, USER } from 'utils/routes'
+import { HOME, POST, POSTS, USER } from 'utils/routes'
 import Header from 'components/Header'
 import UserDetail from 'components/UserDetail'
 import Users from 'pages/Users'
@@ -17,6 +17,9 @@ const App: FC = () => (
         <Header />
         <Suspense fallback={<h1>LOADING...</h1>}>
           <Switch>
+            <Route path={POST}>
+              <h1>adfasf</h1>
+            </Route>
             <Route path={POSTS}>
               <Posts />
             </Route>

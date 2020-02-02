@@ -2,10 +2,10 @@ import React, { FC } from 'react'
 import useSWR from 'swr'
 import List from '@material-ui/core/List'
 
-import User from 'components/UserListItem'
-import { User as UserProps } from 'types/user'
+import Detail from 'components/UserListItem'
+import { User } from 'types/user'
 
-const Users: FC = () => {
+const UserList: FC = () => {
   const { data: response } = useSWR('/users', {
     suspense: true,
     revalidateOnFocus: false,
@@ -14,11 +14,11 @@ const Users: FC = () => {
 
   return (
     <List data-testid="users">
-      {data.map((user: UserProps) => (
-        <User key={user.id} {...user} />
+      {data.map((user: User) => (
+        <Detail key={user.id} {...user} />
       ))}
     </List>
   )
 }
 
-export default Users
+export default UserList
