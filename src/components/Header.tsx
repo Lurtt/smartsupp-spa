@@ -23,7 +23,7 @@ const Header: FC = () => {
   }
 
   return (
-    <Paper square data-testid="app-header">
+    <Paper square style={{ marginBottom: '1rem' }} data-testid="app-header">
       <Tabs
         value={activeTab}
         onChange={handleCallToRouter}

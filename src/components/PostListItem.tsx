@@ -27,9 +27,9 @@ const useStyles = (color: string) =>
 
 const Loading: FC = () => (
   <CardContent>
-    <Skeleton animation="wave" width="50%" height={18} />
-    <Skeleton animation="wave" width="75%" height={120} />
-    <Skeleton animation="wave" width={150} height={18} />
+    <Skeleton animation="wave" width={240} height={24} />
+    <Skeleton animation="wave" width={200} height={18} />
+    <Skeleton animation="wave" width="75%" height={100} />
   </CardContent>
 )
 
