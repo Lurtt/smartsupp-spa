@@ -1,6 +1,5 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { MemoryRouter } from 'react-router-dom'
 
 import PostListItem from 'components/PostListItem'
 import { mockSWRResponse } from 'utils/test-helpers'
@@ -17,11 +16,7 @@ describe('<PostListItem />', () => {
     }
     mockSWRResponse([mockPost])
 
-    const { getByTestId } = render(
-      <MemoryRouter>
-        <PostListItem {...mockPost} />
-      </MemoryRouter>
-    )
+    const { getByTestId } = render(<PostListItem {...mockPost} />)
 
     expect(getByTestId('post')).toBeInTheDocument()
 
