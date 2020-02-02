@@ -9,6 +9,13 @@ interface Props {
   expanded: boolean
 }
 
+interface Comment {
+  id: number
+  name: string
+  email: string
+  body: string
+}
+
 const PostDetail: FC<Props> = ({ id, expanded }) => {
   const { data: response } = useSWR(`/comments?postId=${id}`, {
     suspense: true,
@@ -18,16 +25,16 @@ const PostDetail: FC<Props> = ({ id, expanded }) => {
 
   return (
     <Collapse in={expanded} timeout="auto" unmountOnExit data-testid="user-detail">
-      {comments.map((comment: any) => (
-        <CardContent>
+      {comments.map(({ id: commentId, name, email, body }: Comment) => (
+        <CardContent key={commentId}>
           <Typography variant="overline" display="block">
-            {comment.name}
+            {name}
           </Typography>
           <Typography variant="caption" color="secondary" display="inline" gutterBottom>
-            {comment.email}
+            {email}
           </Typography>
           <Typography color="textSecondary" component="p" gutterBottom>
-            {comment.body}
+            {body}
           </Typography>
         </CardContent>
       ))}
