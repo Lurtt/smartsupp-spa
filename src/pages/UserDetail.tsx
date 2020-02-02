@@ -1,20 +1,39 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import useSWR from 'swr'
-import { useLocation } from 'react-router-dom'
+import { useRouteMatch } from 'react-router-dom'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import IconButton from '@material-ui/core/IconButton'
+import Skeleton from '@material-ui/lab/Skeleton'
 
 import { User as UserProps } from 'types/user'
 import UserDetailCollapse from 'components/UserDetailCollapse'
 
+export const Loading: FC = () => (
+  <Card>
+    <CardContent>
+      <Skeleton animation="wave" width={100} height={14} />
+      <Skeleton animation="wave" width={180} height={24} />
+      <Skeleton animation="wave" width={200} height={14} />
+
+      <Skeleton animation="wave" width={140} height={18} style={{ margin: '1rem 0' }} />
+
+      <Skeleton animation="wave" width={120} height={18} />
+      <Skeleton animation="wave" width={100} height={18} />
+      <Skeleton animation="wave" width={80} height={18} />
+
+      <Skeleton animation="wave" width={100} height={48} style={{ marginTop: '2rem' }} />
+    </CardContent>
+  </Card>
+)
+
 const UserDetail: FC = () => {
-  const [expanded, setExpanded] = React.useState(false)
-  const location = useLocation()
-  const { data: userResponse } = useSWR(`/users${location.pathname}`, {
+  const [expanded, setExpanded] = useState(false)
+  const { params } = useRouteMatch()
+  const { data: userResponse } = useSWR(`/users/${params.id}`, {
     suspense: true,
     revalidateOnFocus: false,
   })
@@ -68,7 +87,7 @@ const UserDetail: FC = () => {
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
-      <UserDetailCollapse expanded={expanded} userId={id}></UserDetailCollapse>
+      <UserDetailCollapse expanded={expanded} userId={id} />
     </Card>
   )
 }
